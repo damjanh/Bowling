@@ -9,6 +9,8 @@ public class PinSetter : MonoBehaviour {
 
 	public Text standingPinsCountText;
 
+	private bool isBallInBox = false;
+
 	void Start () {
 		pins = FindObjectsOfType<Pin>();
 
@@ -24,5 +26,25 @@ public class PinSetter : MonoBehaviour {
 			}
 		}
 		return standing;
+	}
+
+	void UpdateUI() {
+		standingPinsCountText.color = isBallInBox ? Color.red : Color.black;
+	}
+
+	void OnTriggerEnter(Collider collider) {
+		if (collider.gameObject.GetComponent<Ball>() != null) {
+			isBallInBox = true;
+			UpdateUI();
+		}
+	}
+
+	void OnTriggerExit(Collider collider) {
+		if(collider.gameObject.GetComponent<Ball>() != null) {
+			isBallInBox = false;
+			UpdateUI();
+		} else if (collider.gameObject.transform.GetComponentInParent<Pin>() != null) {
+			Destroy(collider.gameObject.transform.parent.gameObject);
+		}
 	}
 }
