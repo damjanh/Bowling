@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4645655720415788}
   - component: {fileID: 95418818087106264}
   - component: {fileID: 54721928202617646}
+  - component: {fileID: 114304634522823784}
   m_Layer: 0
   m_Name: BowlingPin_6
   m_TagString: Untagged
@@ -157,6 +158,7 @@ GameObject:
   - component: {fileID: 4218087993745034}
   - component: {fileID: 95036270067383934}
   - component: {fileID: 54517644104995636}
+  - component: {fileID: 114091163925011488}
   m_Layer: 0
   m_Name: BowlingPin_10
   m_TagString: Untagged
@@ -174,6 +176,7 @@ GameObject:
   - component: {fileID: 4539384381813396}
   - component: {fileID: 95623993157561692}
   - component: {fileID: 54432628339183336}
+  - component: {fileID: 114598988292064750}
   m_Layer: 0
   m_Name: BowlingPin_1
   m_TagString: Untagged
@@ -208,6 +211,7 @@ GameObject:
   - component: {fileID: 4693650574251016}
   - component: {fileID: 95843534174927132}
   - component: {fileID: 54425536661658134}
+  - component: {fileID: 114684851729325104}
   m_Layer: 0
   m_Name: BowlingPin_2
   m_TagString: Untagged
@@ -242,6 +246,7 @@ GameObject:
   - component: {fileID: 4281573237258070}
   - component: {fileID: 95711817426834592}
   - component: {fileID: 54334307178322100}
+  - component: {fileID: 114603663907973638}
   m_Layer: 0
   m_Name: BowlingPin_5
   m_TagString: Untagged
@@ -310,6 +315,7 @@ GameObject:
   - component: {fileID: 4748075489065560}
   - component: {fileID: 95309703252309790}
   - component: {fileID: 54474647615924572}
+  - component: {fileID: 114671802826148588}
   m_Layer: 0
   m_Name: BowlingPin_7
   m_TagString: Untagged
@@ -327,6 +333,7 @@ GameObject:
   - component: {fileID: 4472144120639458}
   - component: {fileID: 95265977434339646}
   - component: {fileID: 54033005783666664}
+  - component: {fileID: 114819362445893056}
   m_Layer: 0
   m_Name: BowlingPin_4
   m_TagString: Untagged
@@ -344,6 +351,7 @@ GameObject:
   - component: {fileID: 4644696015859954}
   - component: {fileID: 95058812475744506}
   - component: {fileID: 54738007208513866}
+  - component: {fileID: 114554744599944508}
   m_Layer: 0
   m_Name: BowlingPin_3
   m_TagString: Untagged
@@ -361,6 +369,7 @@ GameObject:
   - component: {fileID: 4519963096494624}
   - component: {fileID: 95626390878478516}
   - component: {fileID: 54806315721646138}
+  - component: {fileID: 114947906951479932}
   m_Layer: 0
   m_Name: BowlingPin_8
   m_TagString: Untagged
@@ -444,6 +453,7 @@ GameObject:
   - component: {fileID: 4843082664035064}
   - component: {fileID: 95261805933760320}
   - component: {fileID: 54234932143779068}
+  - component: {fileID: 114785771950661574}
   m_Layer: 0
   m_Name: BowlingPin_9
   m_TagString: Untagged
@@ -1919,3 +1929,123 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114091163925011488
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1141199851992322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114304634522823784
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1026994364280824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114554744599944508
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1568700723870362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114598988292064750
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331082860219794}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114603663907973638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1468423028380328}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114671802826148588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1551889461730138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114684851729325104
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1416193634077120}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114785771950661574
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1924571081123940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114819362445893056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1560328759344568}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
+--- !u!114 &114947906951479932
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1587159970957624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77c42ededdcd6ea4789587ae6975e8cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standingThreshold: 3
