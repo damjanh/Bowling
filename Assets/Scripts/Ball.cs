@@ -7,6 +7,8 @@ public class Ball : MonoBehaviour {
 	private Rigidbody thisRigidbody;
 
 	private AudioSource audioSource;
+	
+	private bool isLaunched = false;
 
 	void Start () {
 		thisRigidbody = GetComponent<Rigidbody>();
@@ -16,9 +18,15 @@ public class Ball : MonoBehaviour {
 	}
 
 	public void Launch(Vector3 launchVelocity) {
+		isLaunched = true;
+
 		thisRigidbody.useGravity = true;
 		thisRigidbody.velocity = launchVelocity;
-		
+
 		audioSource.Play();
+	}
+
+	public bool IsLaunched() {
+		return isLaunched;
 	}
 }
