@@ -789,7 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e51a4c257122fd54fa158390fcba2934, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  launchSpeed: 200
+  launchVelocity: {x: 0, y: 0, z: 200}
 --- !u!82 &1109870091
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1015,6 +1015,7 @@ GameObject:
   - component: {fileID: 1697966479}
   - component: {fileID: 1697966478}
   - component: {fileID: 1697966477}
+  - component: {fileID: 1697966481}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1054,7 +1055,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 2500
-  field of view: 50
+  field of view: 60
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -1078,13 +1079,25 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1697966476}
-  m_LocalRotation: {x: 0.07662951, y: -0, z: -0, w: 0.99705964}
-  m_LocalPosition: {x: 0, y: 35.5, z: 0}
+  m_LocalRotation: {x: 0.2274523, y: -0, z: -0, w: 0.9737892}
+  m_LocalPosition: {x: 0, y: 42.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 8.79, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 26.294, y: 0, z: 0}
+--- !u!114 &1697966481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1697966476}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9484770abf10ca64fb56bbcb9eb33282, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ball: {fileID: 1109870090}
 --- !u!1001 &1942547815
 Prefab:
   m_ObjectHideFlags: 0

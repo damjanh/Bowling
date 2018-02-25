@@ -8,7 +8,7 @@ public class Ball : MonoBehaviour {
 
 	private AudioSource audioSource;
 
-	public float launchSpeed;
+	public Vector3 launchVelocity;
 
 	void Start () {
 		thisRigidbody = GetComponent<Rigidbody>();
@@ -18,7 +18,7 @@ public class Ball : MonoBehaviour {
 	}
 
 	public void Launch() {
-		thisRigidbody.velocity = new Vector3(0, 0, launchSpeed);
+		thisRigidbody.velocity = launchVelocity;
 		audioSource.Play();
 	}
 }
