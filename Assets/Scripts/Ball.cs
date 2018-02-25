@@ -8,17 +8,17 @@ public class Ball : MonoBehaviour {
 
 	private AudioSource audioSource;
 
-	public Vector3 launchVelocity;
-
 	void Start () {
 		thisRigidbody = GetComponent<Rigidbody>();
 		audioSource = GetComponent<AudioSource>();
 
-		Launch();
+		thisRigidbody.useGravity = false;
 	}
 
-	public void Launch() {
+	public void Launch(Vector3 launchVelocity) {
+		thisRigidbody.useGravity = true;
 		thisRigidbody.velocity = launchVelocity;
+		
 		audioSource.Play();
 	}
 }
