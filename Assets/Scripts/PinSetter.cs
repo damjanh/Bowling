@@ -75,6 +75,22 @@ public class PinSetter : MonoBehaviour {
 		}
 	}
 
+	public void RaisePins() {
+		foreach(Pin pin in FindObjectsOfType<Pin>()) {
+			pin.Raise();	
+		}
+	}
+
+	public void LowerPins() {
+		foreach(Pin pin in FindObjectsOfType<Pin>()) {
+			pin.Lower();
+		}
+	}
+
+	public void RenewPins() {
+
+	}
+
 	void PinsHaveSettled() {
 		state = State.SETTLED;
 		UpdateUI(lastStandingCount.ToString(), state);
