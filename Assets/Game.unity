@@ -125,6 +125,7 @@ GameObject:
   - component: {fileID: 24163464}
   - component: {fileID: 24163463}
   - component: {fileID: 24163462}
+  - component: {fileID: 24163466}
   m_Layer: 0
   m_Name: PinSetter
   m_TagString: Untagged
@@ -144,7 +145,7 @@ Transform:
   m_Children:
   - {fileID: 765246966}
   m_Father: {fileID: 1895428962}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &24163462
 MonoBehaviour:
@@ -158,6 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   standingPinsCountText: {fileID: 809133577}
+  lastStandingCount: -1
 --- !u!23 &24163463
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -211,6 +213,23 @@ MeshFilter:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 24163460}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &24163466
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 24163460}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 96b8d5f7e227f2d44a5a09ae92bbbf95, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &171263741
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +742,6 @@ GameObject:
   - component: {fileID: 854752918}
   - component: {fileID: 854752917}
   - component: {fileID: 854752916}
-  - component: {fileID: 854752915}
   - component: {fileID: 854752914}
   m_Layer: 0
   m_Name: Swiper
@@ -743,7 +761,7 @@ Transform:
   m_LocalScale: {x: 105, y: 30, z: 10}
   m_Children: []
   m_Father: {fileID: 1895428962}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &854752914
 Rigidbody:
@@ -760,23 +778,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!95 &854752915
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 854752912}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 63b91c900560f3f478aa2abf37f4677d, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
 --- !u!23 &854752916
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1506,8 +1507,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 232852243}
-  - {fileID: 854752913}
   - {fileID: 24163461}
+  - {fileID: 854752913}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
