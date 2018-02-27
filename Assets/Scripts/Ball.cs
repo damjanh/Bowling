@@ -10,11 +10,14 @@ public class Ball : MonoBehaviour {
 	
 	private bool isLaunched = false;
 
+	private Vector3 startPositon;
+
 	void Start () {
 		thisRigidbody = GetComponent<Rigidbody>();
 		audioSource = GetComponent<AudioSource>();
 
 		thisRigidbody.useGravity = false;
+		startPositon = transform.position;
 	}
 
 	public void Launch(Vector3 launchVelocity) {
@@ -28,5 +31,13 @@ public class Ball : MonoBehaviour {
 
 	public bool IsLaunched() {
 		return isLaunched;
+	}
+
+	public void Reset() {
+		isLaunched = false;
+		transform.position = startPositon;
+		thisRigidbody.useGravity = false;
+		thisRigidbody.angularVelocity = Vector3.zero;
+		thisRigidbody.velocity = Vector3.zero;
 	}
 }

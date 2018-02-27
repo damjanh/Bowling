@@ -5,14 +5,25 @@ using UnityEngine.UI;
 
 public class PinSetter : MonoBehaviour {
 
+	private static float SETTLE_TIME = 4f;
+
 	public Text standingPinsCountText;
 
-	private bool isBallInBox = false;
+	public int lastStandingCount = -1; // -1 Default state.
 
-	private int nextUpdate = 1;
+	private float lastChangeTime;
+
+	private Ball ball;
+
+	private enum State {
+		IDLE, BALL_IN_BOX, SETTLED
+	}
+
+	private State state = State.IDLE;
 
 	void Start () {
-		UpdateUI(CountStatnding().ToString());
+		ball = FindObjectOfType<Ball>();
+		UpdateUI(CountStatnding().ToString(), state);
 	}
 
 	int CountStatnding() {
@@ -28,24 +39,57 @@ public class PinSetter : MonoBehaviour {
 	}
 
 	void Update() {
-		UpdateUI(CountStatnding().ToString());
+		// No need to update while the ball is far away from pins.
+		if (state == State.BALL_IN_BOX) {
+			UpdateUI(CountStatnding().ToString(), state);
+			CheckStanding();
+		}
 	}
 
-	void UpdateUI(string text) {
+	void UpdateUI(string text, State state) {
 		standingPinsCountText.text = text;
-		standingPinsCountText.color = isBallInBox ? Color.red : Color.black;
+		switch (state) {
+			case State.IDLE:
+				standingPinsCountText.color = Color.black;
+				break;
+			case State.BALL_IN_BOX:
+				standingPinsCountText.color = Color.red;
+				break;
+			case State.SETTLED:
+				standingPinsCountText.color = Color.green;
+				break;
+		}
+	}
+
+	void CheckStanding() {
+		int currentStanding = CountStatnding();
+
+		if (currentStanding != lastStandingCount) {
+			lastChangeTime = Time.time;
+			lastStandingCount = currentStanding;
+			return;
+		} 
+
+		if (Time.time - lastChangeTime > SETTLE_TIME) {
+			PinsHaveSettled();
+		}
+	}
+
+	void PinsHaveSettled() {
+		state = State.SETTLED;
+		UpdateUI(lastStandingCount.ToString(), state);
+
+		ball.Reset();
 	}
 
 	void OnTriggerEnter(Collider collider) {
 		if (collider.gameObject.GetComponent<Ball>() != null) {
-			isBallInBox = true;
+			state = State.BALL_IN_BOX;
 		}
 	}
 
 	void OnTriggerExit(Collider collider) {
-		if(collider.gameObject.GetComponent<Ball>() != null) {
-			isBallInBox = false;
-		} else if (collider.gameObject.transform.GetComponentInParent<Pin>() != null) {
+		if (collider.gameObject.transform.GetComponentInParent<Pin>() != null) {
 			Destroy(collider.gameObject.transform.parent.gameObject);
 		}
 	}
