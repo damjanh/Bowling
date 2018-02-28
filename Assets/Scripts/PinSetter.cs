@@ -9,13 +9,19 @@ public class PinSetter : MonoBehaviour {
 
 	public Text standingPinsCountText;
 
-	public int lastStandingCount = -1; // -1 Default state.
+	private int lastStandingCount = -1; // -1 Default state.
+
+	private int lastSettledCount = 10;
 
 	public GameObject pinsReset;
 
 	private float lastChangeTime;
 
 	private Ball ball;
+
+	private ActionMaster actionMaster = new ActionMaster();
+
+	private Animator animator;
 
 	private enum State {
 		IDLE, BALL_IN_BOX, SETTLED
@@ -25,6 +31,7 @@ public class PinSetter : MonoBehaviour {
 
 	void Start () {
 		ball = FindObjectOfType<Ball>();
+		animator = GetComponent<Animator>();
 		UpdateUI(CountStatnding().ToString(), state);
 	}
 
@@ -94,6 +101,24 @@ public class PinSetter : MonoBehaviour {
 	}
 
 	void PinsHaveSettled() {
+		int pinFall = lastSettledCount - lastStandingCount;
+		lastSettledCount = lastStandingCount;
+		switch(actionMaster.Bowl(pinFall)) {
+			case ActionMaster.Action.TIDY:
+				animator.SetTrigger("tidyTrigger");
+			break;
+			case ActionMaster.Action.RESET:
+				animator.SetTrigger("resetTrigger");
+				lastSettledCount = 10;
+			break;
+			case ActionMaster.Action.END_TURN:
+				animator.SetTrigger("resetTrigger");
+			break;
+			case ActionMaster.Action.END_GAME:
+				// No logic yet.
+			break;
+		}
+
 		state = State.SETTLED;
 		UpdateUI(lastStandingCount.ToString(), state);
 
