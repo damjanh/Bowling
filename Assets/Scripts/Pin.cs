@@ -28,7 +28,7 @@ public class Pin : MonoBehaviour {
 			// Raise pins in the Y axis.
 			transform.Translate(new Vector3(0, distanceToRaise, 0), Space.World);
 			//Reset the rotatin to starting rotation.
-			transform.rotation = Quaternion.Euler(270f, 0, 0);
+			transform.rotation = Quaternion.Euler(0, 0, 0);
 		}
 	}
 
