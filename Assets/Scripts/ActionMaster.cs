@@ -4,10 +4,21 @@ using UnityEngine;
 
 public class ActionMaster {
 
+	public enum Action { TIDY, RESET, END_TURN, END_GAME };
+
 	private int[] bowls = new int[21];
 	private int bowlNumber = 1;
 
-	public enum Action { TIDY, RESET, END_TURN, END_GAME };
+	public static Action NextAction(List<int> pinFalls) {
+		ActionMaster actionMaster = new ActionMaster();
+		Action currentAction = new Action();
+
+		foreach(int pinFall in pinFalls) {
+			currentAction = actionMaster.Bowl(pinFall);
+		}
+
+		return currentAction;
+	}
 
 	public Action Bowl (int pins) {
 		if (pins < 0 || pins > 10) {throw new UnityException ("Invalid pins");}
@@ -18,7 +29,7 @@ public class ActionMaster {
 			return Action.END_GAME;
 		}
 
-		// Llast-frame special cases
+		// Last-frame special cases
 		if (bowlNumber >= 19 && pins == 10) {
 			bowlNumber++;
 			return Action.RESET;
