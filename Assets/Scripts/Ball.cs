@@ -7,10 +7,11 @@ public class Ball : MonoBehaviour {
 	private Rigidbody thisRigidbody;
 
 	private AudioSource audioSource;
-	
-	private bool isLaunched = false;
 
 	private Vector3 startPositon;
+
+	// Flags if the ball has been launched.
+	private bool isLaunched = false;
 
 	void Start () {
 		thisRigidbody = GetComponent<Rigidbody>();
@@ -34,10 +35,16 @@ public class Ball : MonoBehaviour {
 	}
 
 	public void Reset() {
+		// Reset ball launched flag.
 		isLaunched = false;
+		// Reset ball to start position.
 		transform.position = startPositon;
-		thisRigidbody.useGravity = false;
+		// Reset ball rotation.
+		transform.rotation = Quaternion.identity;
+		// Set ball velocity to zero.
 		thisRigidbody.angularVelocity = Vector3.zero;
 		thisRigidbody.velocity = Vector3.zero;
+		// Disable gravity until launch.
+		thisRigidbody.useGravity = false;
 	}
 }

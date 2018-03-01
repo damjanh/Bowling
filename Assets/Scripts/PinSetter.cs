@@ -7,26 +7,19 @@ public class PinSetter : MonoBehaviour {
 
 	private static float SETTLE_TIME = 4f;
 
-	public Text standingPinsCountText;
-
-	private int lastStandingCount = -1; // -1 Default state.
-
-	private int lastSettledCount = 10;
-
-	public GameObject pinsReset;
-
-	private float lastChangeTime;
-
-	private Ball ball;
-
-	private ActionMaster actionMaster = new ActionMaster();
-
-	private Animator animator;
-
 	private enum State {
 		IDLE, BALL_IN_BOX, SETTLED
 	}
 
+	public Text standingPinsCountText;
+	public GameObject pinsReset;
+
+	private int lastStandingCount = -1; // -1 Default state.
+	private int lastSettledCount = 10;
+	private float lastChangeTime;
+	private Ball ball;
+	private ActionMaster actionMaster = new ActionMaster();
+	private Animator animator;
 	private State state = State.IDLE;
 
 	void Start () {
@@ -101,34 +94,37 @@ public class PinSetter : MonoBehaviour {
 	}
 
 	void PinsHaveSettled() {
+		state = State.SETTLED;
+
 		int pinFall = lastSettledCount - lastStandingCount;
 		lastSettledCount = lastStandingCount;
 		switch(actionMaster.Bowl(pinFall)) {
 			case ActionMaster.Action.TIDY:
 				animator.SetTrigger("tidyTrigger");
-			break;
+				break;
 			case ActionMaster.Action.RESET:
 				animator.SetTrigger("resetTrigger");
-				lastSettledCount = 10;
-			break;
+				break;
 			case ActionMaster.Action.END_TURN:
 				animator.SetTrigger("resetTrigger");
-			break;
+				break;
 			case ActionMaster.Action.END_GAME:
 				// No logic yet.
-			break;
+				break;
+			default:
+				break;
 		}
 
-		state = State.SETTLED;
-		UpdateUI(lastStandingCount.ToString(), state);
+		lastChangeTime = 0;
+		lastSettledCount = 10;
 
 		ball.Reset();
+		state = State.IDLE;
+		UpdateUI(lastStandingCount.ToString(), state);
 	}
 
-	void OnTriggerEnter(Collider collider) {
-		if (collider.gameObject.GetComponent<Ball>() != null) {
-			state = State.BALL_IN_BOX;
-		}
+	public void BallOutOfPlay() {
+		state = State.BALL_IN_BOX;
 	}
 
 	void OnTriggerExit(Collider collider) {

@@ -14,8 +14,10 @@ public class BallDragLaunch : MonoBehaviour {
 	}
 	
 	public void DragStart() {
-		dragStartTime = Time.time;
-		dragStartPosition = Input.mousePosition;
+		if (!ball.IsLaunched()) {
+			dragStartTime = Time.time;
+			dragStartPosition = Input.mousePosition;
+		}
 	}
 
 	public void DragEnd() {
