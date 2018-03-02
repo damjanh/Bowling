@@ -8,10 +8,12 @@ public class BowlGameManager : MonoBehaviour {
 
 	private PinSetter pinSetter;
 	private Ball ball;
+	private ScoreDisplay scoreDisplay;
 
 	void Start () {
 		pinSetter = FindObjectOfType<PinSetter>();
 		ball = FindObjectOfType<Ball>();
+		scoreDisplay = FindObjectOfType<ScoreDisplay>();
 	}
 	
 	public void Bowl(int pinFall) {
