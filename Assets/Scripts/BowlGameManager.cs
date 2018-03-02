@@ -21,6 +21,9 @@ public class BowlGameManager : MonoBehaviour {
 		bowls.Add(pinFall);
 		// Perform next action based on the current and previous bowl counts.
 		pinSetter.PerformAction(ActionMaster.NextAction(bowls));
+		// Update score dispaly.
+	 	scoreDisplay.FillRollCard(bowls);
+		scoreDisplay.FillFreames(ScoreMaster.ScoreCumulative(bowls));
 	}
 
 	public void SetState(State state) {

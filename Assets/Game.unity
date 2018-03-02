@@ -1980,7 +1980,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57581de44ba1c4c48a9e9fd682de2e8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rollTexts:
+  frameTexts:
   - {fileID: 254252108}
   - {fileID: 1757315437}
   - {fileID: 1520742288}
@@ -1991,7 +1991,7 @@ MonoBehaviour:
   - {fileID: 1719384689}
   - {fileID: 1285448918}
   - {fileID: 537990064}
-  frameTexts:
+  bowlTexts:
   - {fileID: 1423876592}
   - {fileID: 1286363748}
   - {fileID: 1214910467}

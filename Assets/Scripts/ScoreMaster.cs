@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScoreMaster  {
+public static class ScoreMaster  {
 
 	public static List<int> ScoreFrames(List<int> rolls) {
 		List<int> frames = new List<int>();
@@ -20,7 +20,7 @@ public class ScoreMaster  {
 				break;
 			}
 
-			if (rolls[i-1] == 10) {							
+			if (rolls[i - 1] == 10) {							
 				i--; // Strike - one bowl.										
 				frames.Add (10 + rolls [i + 1] + rolls[i + 2]);
 			} else if (rolls[i - 1] + rolls[i] == 10) {	
