@@ -8,21 +8,9 @@ public class PinSetter : MonoBehaviour {
 	private Animator animator;
 	private PinCounter pinCounter;
 
-	private State state = State.IDLE;
-
 	void Start () {
 		animator = GetComponent<Animator>();
-
 		pinCounter = FindObjectOfType<PinCounter>();
-		pinCounter.UpdateUI(state);
-	}
-
-	void Update() {
-		// No need to update while the ball is far away from pins.
-		if (state == State.BALL_IN_BOX) {
-			pinCounter.UpdateUI(state);
-			pinCounter.CheckStandingAfterBallTrigger();
-		}
 	}
 
 	public void PerformAction(ActionMaster.Action action) {
@@ -60,10 +48,6 @@ public class PinSetter : MonoBehaviour {
 
 	public void RenewPins() {
 		Instantiate(pinsReset, new Vector3(0, 0, 1829), Quaternion.identity);
-	}
-
-	public void SetState(State state) {
-		this.state = state;
 	}
 
 	void OnTriggerExit(Collider collider) {

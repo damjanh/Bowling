@@ -16,9 +16,23 @@ public class PinCounter : MonoBehaviour {
 	private int lastSettledCount = 10;
 	private float lastChangeTime;
 
+	private State state = State.IDLE;
+
 	// Use this for initialization
 	void Start () {
 		gameManager = FindObjectOfType<BowlGameManager>();
+	}
+
+	void Update() {
+		// No need to update while the ball is far away from pins.
+		if (state == State.BALL_IN_BOX) {
+			UpdateUI(state);
+			CheckStandingAfterBallTrigger();
+		}
+	}
+
+	public void setState(State state) {
+		this.state = state;
 	}
 
 	public void UpdateUI(State state) {
@@ -67,21 +81,20 @@ public class PinCounter : MonoBehaviour {
 	}
 
 	private void PinsHaveSettled() {
-		gameManager.SetState(State.SETTLED);
-
+		state = State.SETTLED;
 		int pinFall = lastSettledCount - lastStandingCount;
 		lastSettledCount = lastStandingCount;
+		lastStandingCount = 0;
 		lastChangeTime = 0;
 
+		state = State.IDLE;
 		gameManager.Bowl(pinFall);
-	
-		gameManager.SetState(State.IDLE);
-		UpdateUI(State.IDLE);
+		UpdateUI(state);
 	}
 
 	void OnTriggerExit(Collider collider) {
 		if (collider.gameObject.GetComponent<Ball>() != null) {
-			gameManager.SetState(State.BALL_IN_BOX);
+			state = State.BALL_IN_BOX;
 		}
 	}
 }

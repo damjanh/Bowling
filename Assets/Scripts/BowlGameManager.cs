@@ -24,12 +24,7 @@ public class BowlGameManager : MonoBehaviour {
 		// Update score dispaly.
 	 	scoreDisplay.FillRollCard(bowls);
 		scoreDisplay.FillFreames(ScoreMaster.ScoreCumulative(bowls));
-	}
 
-	public void SetState(State state) {
-		if (state == State.IDLE) {
-			ball.Reset();
-		}
-		pinSetter.SetState(state);
+		ball.Reset();
 	}
 }

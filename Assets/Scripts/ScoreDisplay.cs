@@ -19,13 +19,13 @@ public class ScoreDisplay : MonoBehaviour {
 	
 	public void FillRollCard(List<int> rolls) {
 		string formattedOutput = FormatRolls(rolls);
-		for(int i = 0; i < formattedOutput.Length; i++) {
-			frameTexts[i].text = formattedOutput[i].ToString();
+		for(int i = 0; i < rolls.Count; i++) {
+			bowlTexts[i].text = formattedOutput[i].ToString();
 		}
 	}
 
 	public void FillFreames(List<int> frames) {
-		for(int i = 0; i < frameTexts.Length; i++) {
+		for(int i = 0; i < frames.Count; i++) {
 			frameTexts[i].text = frames[i].ToString();
 		}
 	}
