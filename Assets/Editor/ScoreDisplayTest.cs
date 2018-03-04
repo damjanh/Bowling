@@ -96,4 +96,17 @@ public class ScoreDisplayTest {
 		Assert.AreEqual(formatted, ScoreDisplay.FormatRolls(bowls.ToList()));
 	}
 
+	[Test]
+	public void T11_Bowl010() {
+		int[] bowls = { 0, 10 };
+		string formatted = "-/";
+		Assert.AreEqual(formatted, ScoreDisplay.FormatRolls(bowls.ToList()));
+	}
+
+	[Test]
+	public void T12_SpareInLastFrame2() {
+		int[] bowls = { 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 10, 9, 1 };
+		string formatted = "111111111111111111X9/";
+		Assert.AreEqual(formatted, ScoreDisplay.FormatRolls(bowls.ToList()));
+	}
 }
