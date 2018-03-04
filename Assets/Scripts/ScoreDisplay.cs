@@ -36,7 +36,7 @@ public class ScoreDisplay : MonoBehaviour {
 			int rollNumber = formatted.Length + 1;
 			if (rolls[i] == 0) {
 				formatted += "-";
-			} else if (rollNumber % 2 == 0 && rolls[i - 1] + rolls[i] == 10) {
+			} else if ((rollNumber % 2 == 0 || rollNumber == 21) && rolls[i - 1] + rolls[i] == 10) {
 				// Spare
 				formatted += "/";
 			} else if (rolls[i] == 10) {
