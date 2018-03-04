@@ -19,7 +19,7 @@ public class ScoreDisplay : MonoBehaviour {
 	
 	public void FillRollCard(List<int> rolls) {
 		string formattedOutput = FormatRolls(rolls);
-		for(int i = 0; i < bowlTexts.Length; i++) {
+		for(int i = 0; i < formattedOutput.Length; i++) {
 			frameTexts[i].text = formattedOutput[i].ToString();
 		}
 	}
@@ -31,7 +31,24 @@ public class ScoreDisplay : MonoBehaviour {
 	}
 
 	public static string FormatRolls(List<int> rolls) {
-		// TODO: Implement
-		return "";
+		string formatted = "";
+		for(int i = 0; i < rolls.Count; i++) {
+			int rollNumber = formatted.Length + 1;
+			if (rolls[i] == 0) {
+				formatted += "-";
+			} else if (rollNumber % 2 == 0 && rolls[i - 1] + rolls[i] == 10) {
+				// Spare
+				formatted += "/";
+			} else if (rolls[i] == 10) {
+				// Strike
+				formatted += "X";
+				if (rollNumber < 19 ) {
+					formatted += " ";
+				}
+			} else {
+				formatted += rolls[i].ToString();
+			}
+		}
+		return formatted;
 	}
 }
